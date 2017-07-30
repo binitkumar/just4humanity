@@ -1,0 +1,29 @@
+%h1 Listing topics
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Preface
+      %th Subject
+      %th Closing time
+      %th Prefacer
+      %th
+      %th
+      %th
+
+  %tbody
+    - @topics.each do |topic|
+      %tr
+        %td= topic.title
+        %td= topic.preface
+        %td= topic.subject_id
+        %td= topic.closing_time
+        %td= topic.prefacer
+        %td= link_to 'Show', topic
+        %td= link_to 'Edit', edit_topic_path(topic)
+        %td= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Topic', new_topic_path

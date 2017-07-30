@@ -45,3 +45,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'thin'
 end
+gem 'omniauth-facebook'
+gem 'ckeditor'
+gem 'paperclip'
+gem 'bootstrap-material-design'

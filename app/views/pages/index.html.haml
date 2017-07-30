@@ -1,0 +1,31 @@
+%h1 Listing pages
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Content
+      %th Creator
+      %th Is public
+      %th Reviewed on
+      %th Topic
+      %th
+      %th
+      %th
+
+  %tbody
+    - @pages.each do |page|
+      %tr
+        %td= page.title
+        %td= page.content
+        %td= page.creator_id
+        %td= page.is_public
+        %td= page.reviewed_on
+        %td= page.topic_id
+        %td= link_to 'Show', page
+        %td= link_to 'Edit', edit_page_path(page)
+        %td= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Page', new_page_path

@@ -1,0 +1,13 @@
+.container.page-content
+  = render "topic_details"
+  .row
+    .col-md-12
+      - if @topic.closing_time <= Time.now && @topic.page.nil?
+        = link_to "Summarize and Conclude this topic", summarize_and_conclude_topic_path(@topic), class: 'btn btn-success'
+      - elsif @topic.page
+        %h3 Summary
+        = @topic.page.content.try(:html_safe)
+        - if @topic.page.reviewed_on.nil?
+          .pull-left=link_to "Approve", approve_page_path(@topic.page), class: 'btn btn-sm btn-success'
+          .pull-right=link_to "Edit summary content", edit_page_path(@topic.page), class: 'btn btn-sm btn-primary'
+  = link_to 'Back', topics_path, class: 'btn btn-sm'

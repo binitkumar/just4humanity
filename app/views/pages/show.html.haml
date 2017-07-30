@@ -1,0 +1,7 @@
+.container.page-content
+  .row
+    .col-md-12
+      %p
+        %h3.text-center= @page.topic.title
+      %p
+        = @page.content.try(:html_safe)

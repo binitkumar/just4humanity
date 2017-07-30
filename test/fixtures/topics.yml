@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  preface: MyText
+  subject_id: 1
+  closing_time: 2017-07-28 08:04:18
+  prefacer: 1
+
+two:
+  title: MyString
+  preface: MyText
+  subject_id: 1
+  closing_time: 2017-07-28 08:04:18
+  prefacer: 1

@@ -8,6 +8,8 @@ body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
   color: #404040;
+  background: url('/assets/humanity-hands.jpg');
+  background-size: cover;
 }
 p {
   line-height: 1.5;
@@ -25,16 +27,9 @@ h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
-a {
-  color: #404040;
-}
 a:hover,
 a:focus {
   color: #0085a1;
-}
-a img:hover,
-a img:focus {
-  cursor: zoom-in;
 }
 blockquote {
   color: #808080;
@@ -69,20 +64,20 @@ hr.small {
     border-bottom: 1px solid transparent;
   }
   .navbar-custom .navbar-brand {
-    color: white;
+    color: black;
     padding: 20px;
   }
   .navbar-custom .navbar-brand:hover,
   .navbar-custom .navbar-brand:focus {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
   }
   .navbar-custom .nav li a {
-    color: white;
+    color: black;
     padding: 20px;
   }
   .navbar-custom .nav li a:hover,
   .navbar-custom .nav li a:focus {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -146,7 +141,7 @@ hr.small {
 .intro-header .post-heading,
 .intro-header .page-heading {
   padding: 100px 0 50px;
-  color: white;
+  color: black !important;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
@@ -209,9 +204,6 @@ hr.small {
   .intro-header .post-heading .subheading {
     font-size: 30px;
   }
-}
-.post-preview > a {
-  color: #404040;
 }
 .post-preview > a:hover,
 .post-preview > a:focus {
@@ -392,4 +384,21 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #0085a1;
+}
+.page-content {
+    margin-top: 70px;
+    min-height: 80vh;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    opacity: 0.85;
+}
+.alert.alert-dismissible.alert-success {
+    margin-top: 50px;
+}
+.comment-bar {
+    background: #e4e4cb;
+    padding: 5px 20px;
+    border-radius: 10px;
+    margin: 10px;
 }

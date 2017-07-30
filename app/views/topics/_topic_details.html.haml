@@ -1,0 +1,33 @@
+.row
+  .col-md-12
+    %p.text-right
+      %b Subject:
+      = @topic.subject.name
+    %p
+      %h3.text-center= @topic.title
+    %p
+      = @topic.preface.try(:html_safe)
+    %p.text-right.post-meta
+      Posted by #{ @topic.creator.name } on #{ @topic.created_at.strftime('%d/%m/%Y %H:%M')}
+    - if @topic.status == 'In Discussion'
+      %p.pull-right
+        %b Discussion Closing time:
+        = @topic.closing_time.strftime("%d-%m-%Y %H:%M")
+- if @topic.comments.any?
+  .row
+    - @topic.comments.each do |comment|
+      .col-md-12.comment-bar
+        %b.post-subtitle
+          = comment.content.try(:html_safe)
+        %p.text-left.post-meta
+          From #{ comment.creator.name } on #{ comment.created_at.strftime('%d/%m/%Y')}
+- if @topic.closing_time > Time.now   
+  .row
+    .col-md-12
+      = form_for @topic.comments.build do |f|
+        .field
+          = f.cktext_area :content, class: 'form-control'
+          = f.hidden_field :topic_id, value: @topic.id
+        .field
+          %br/
+          = f.submit "Comment", class: 'btn btn-primary'

@@ -1,0 +1,24 @@
+.container.page-content
+  .row
+    .col-md-3
+      %ul
+        %li= link_to "Pending Topics", topics_path
+        %li= link_to "Ongoing discussions", discussions_path
+        %li= link_to "Pending Topic conclusion", pending_discussions_path
+        %li= link_to "Topic in Review", in_review_discussions_path 
+        %li= link_to "Public area", root_path 
+    .col-md-9
+      .pull-right=link_to "Add new topic", new_topic_path, class: 'btn btn-primary'
+      - if @topics.empty?
+        %h3.text-center No topics listed here.
+      - @topics.each do |topic|
+        .post-preview
+          = link_to topic do
+            %h2.post-title= topic.title
+          %b.post-subtitle
+            = topic.preface.to_s[0..255].try(:html_safe)
+          %p.text-right.post-meta
+            Posted by #{ topic.creator.name } on #{ topic.created_at.strftime('%d/%m/%Y')}
+          - if topic.status == 'pending'
+            %p= link_to "Update/Status discussion on topic", edit_topic_path(topic)
+        %hr
