@@ -21,7 +21,7 @@
           = comment.content.try(:html_safe)
         %p.text-left.post-meta
           From #{ comment.creator.name } on #{ comment.created_at.strftime('%d/%m/%Y')}
-- if @topic.closing_time > Time.now   
+- if @topic.closing_time && @topic.closing_time > Time.now   
   .row
     .col-md-12
       = form_for @topic.comments.build do |f|

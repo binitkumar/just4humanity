@@ -2,7 +2,7 @@
   = render "topic_details"
   .row
     .col-md-12
-      - if @topic.closing_time <= Time.now && @topic.page.nil?
+      - if @topic.closing_time && @topic.closing_time <= Time.now && @topic.page.nil?
         = link_to "Summarize and Conclude this topic", summarize_and_conclude_topic_path(@topic), class: 'btn btn-success'
       - elsif @topic.page
         %h3 Summary

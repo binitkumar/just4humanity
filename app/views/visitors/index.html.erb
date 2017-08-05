@@ -25,14 +25,14 @@
                         <%= page.topic.title %>
                     </h2>
                     <h3 class="post-subtitle">
-                        <%= page.content.to_s[0..255].try(:html_safe)%>
+                        <%= strip_tags(page.content.to_s)[0..255] %>
                     </h3>
                 <% end %>
                 <p class="post-meta">Posted by <%= page.creator.name %> on <%= page.reviewed_on.strftime('%d/%m/%Y %H:%M')%></p>
             </div>
-            <hr>
+            <hr/>
             <% end %>
-            <div class="post-preview">
+            <!--div class="post-preview">
                 <%= link_to page_path('post') do %>
                     <h2 class="post-title">
                         Man must explore, and this is exploration at its greatest
@@ -76,7 +76,7 @@
                 <% end %>
                 <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
             </div>
-            <hr>
+            <hr -->
             <!-- Pager -->
             <ul class="pager">
                 <li class="next">
