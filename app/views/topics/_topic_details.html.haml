@@ -8,7 +8,7 @@
     %p
       = @topic.preface.try(:html_safe)
     %p.text-right.post-meta
-      Posted by #{ @topic.creator.name } on #{ @topic.created_at.strftime('%d/%m/%Y %H:%M')}
+      Posted by #{ link_to(@topic.creator.name, "http://facebook.com/#{@topic.creator.uid}", target: '_blank') } on #{ @topic.created_at.strftime('%d/%m/%Y %H:%M')}
     - if @topic.status == 'In Discussion'
       %p.pull-right
         %b Discussion Closing time:
@@ -20,7 +20,7 @@
         %b.post-subtitle
           = comment.content.try(:html_safe)
         %p.text-left.post-meta
-          From #{ comment.creator.name } on #{ comment.created_at.strftime('%d/%m/%Y')}
+          From #{ link_to(comment.creator.name, "http://facebook.com/#{comment.creator.uid}", target: '_blank') } on #{ comment.created_at.strftime('%d/%m/%Y')}
 - if @topic.closing_time && @topic.closing_time > Time.now   
   .row
     .col-md-12

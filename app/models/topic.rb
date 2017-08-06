@@ -1,4 +1,7 @@
 class Topic < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   STATUSES = %w{pending In\ Discussion In\ Summary In\ Review Published}
 
   OPEN_STATUSES = %w{pending In\ Discussion}
