@@ -17,8 +17,14 @@
   .row
     - @topic.comments.each do |comment|
       .col-md-12.comment-bar
-        %b.post-subtitle
+        .post-subtitle
           = comment.content.try(:html_safe)
+          .pull-right
+            = link_to like_comment_path(comment), method: :put do
+              %i.fa.fa-thumbs-up
+            = link_to dislike_comment_path(comment), method: :put do
+              %i.fa.fa-thumbs-down
+            Score: #{comment.weighted_score}
         %p.text-left.post-meta
           From #{ link_to(comment.creator.name, "http://facebook.com/#{comment.creator.uid}", target: '_blank') } on #{ comment.created_at.strftime('%d/%m/%Y')}
 - if @topic.closing_time && @topic.closing_time > Time.now   

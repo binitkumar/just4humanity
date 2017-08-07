@@ -26,7 +26,13 @@ Rails.application.routes.draw do
       get :in_review
     end
   end
-  resources :comments
+  resources :comments do
+    member do
+      put :like
+      put :dislike
+    end
+  end
+
   devise_for :users
   root "visitors#index"
 end
