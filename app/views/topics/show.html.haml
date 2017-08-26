@@ -1,5 +1,5 @@
 .container.page-content
-  = render "topic_details"
+  = render "topics/topic_details"
   .row
     .col-md-12
       - if @topic.closing_time && @topic.closing_time <= Time.now && @topic.page.nil?

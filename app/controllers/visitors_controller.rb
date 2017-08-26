@@ -5,6 +5,6 @@ class VisitorsController < ApplicationController
   end
 
   def dashboard
-    @topics = Topic.where(status: 'In Discussion')
+    @topics = Topic.where(status: 'In Discussion').order("updated_at desc")
   end
 end
