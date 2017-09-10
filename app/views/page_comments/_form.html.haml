@@ -1,0 +1,29 @@
+= form_for @page_comment do |f|
+  - if @page_comment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@page_comment.errors.count, "error")} prohibited this page_comment from being saved:"
+      %ul
+        - @page_comment.errors.full_messages.each do |message|
+          %li= message
+  = f.hidden_field :page_id, value: @page.id
+  .col-md-12
+    .field
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+  .col-md-6
+    .field
+      = f.label :email
+      = f.text_field :email, class: 'form-control'
+  .col-md-6
+    .field
+      = f.label :phone_no
+      = f.text_field :phone_no, class: 'form-control'
+  .col-md-12
+    .field
+      = f.label :comment
+      = f.text_area :message, class: 'form-control', rows: 4
+  .col-md-12
+    .field
+      = recaptcha_tags
+    .actions
+      = f.submit 'Save', class: 'btn btn-primary'

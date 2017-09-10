@@ -1,0 +1,24 @@
+= form_for @contact_request do |f|
+  - if @contact_request.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@contact_request.errors.count, "error")} prohibited this contact_request from being saved:"
+      %ul
+        - @contact_request.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .field
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+  .field
+    = f.label :phone_no
+    = f.text_field :phone_no, class: 'form-control'
+  .field
+    = f.label :message
+    = f.text_area :message, class: 'form-control'
+  .field
+    = recaptcha_tags
+  .actions
+    = f.submit 'Save', class: 'btn btn-primary'

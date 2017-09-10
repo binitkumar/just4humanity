@@ -5,3 +5,17 @@
         %h3.text-center= @page.topic.title
       %p
         = @page.content.try(:html_safe)
+  - if @page.page_comments.any?
+    .row
+      - @page.page_comments.each do |comment|
+        .col-md-12.comment-bar
+          .post-subtitle
+            = simple_format comment.message
+          %p.text-right.post-meta
+            From #{ comment.name } on #{ comment.created_at.strftime('%d/%m/%Y')}
+  .row
+    .col-md-12
+      %hr/
+      %h3 Your comments are welcomed..
+      - @page_comment ||= PageComment.new
+      = render "page_comments/form"

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @page_comment.name
+%p
+  %b Email:
+  = @page_comment.email
+%p
+  %b Phone no:
+  = @page_comment.phone_no
+%p
+  %b Message:
+  = @page_comment.message
+
+= link_to 'Edit', edit_page_comment_path(@page_comment)
+\|
+= link_to 'Back', page_comments_path

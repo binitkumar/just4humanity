@@ -1,0 +1,27 @@
+%h1 Listing page_comments
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Phone no
+      %th Message
+      %th
+      %th
+      %th
+
+  %tbody
+    - @page_comments.each do |page_comment|
+      %tr
+        %td= page_comment.name
+        %td= page_comment.email
+        %td= page_comment.phone_no
+        %td= page_comment.message
+        %td= link_to 'Show', page_comment
+        %td= link_to 'Edit', edit_page_comment_path(page_comment)
+        %td= link_to 'Destroy', page_comment, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Page comment', new_page_comment_path

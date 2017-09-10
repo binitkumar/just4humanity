@@ -1,0 +1,27 @@
+%h1 Listing contact_requests
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Phone no
+      %th Message
+      %th
+      %th
+      %th
+
+  %tbody
+    - @contact_requests.each do |contact_request|
+      %tr
+        %td= contact_request.name
+        %td= contact_request.email
+        %td= contact_request.phone_no
+        %td= contact_request.message
+        %td= link_to 'Show', contact_request
+        %td= link_to 'Edit', edit_contact_request_path(contact_request)
+        %td= link_to 'Destroy', contact_request, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Contact request', new_contact_request_path

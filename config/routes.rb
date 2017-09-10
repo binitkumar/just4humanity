@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :page_comments
+  resources :contact_requests
   mount Ckeditor::Engine => '/ckeditor'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
