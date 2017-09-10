@@ -5,6 +5,6 @@ class VisitorsController < ApplicationController
   end
 
   def dashboard
-    @topics = Topic.where(status: 'In Discussion').select{|top| top.page.nil? }
+    @topics = Topic.where(status: 'In Discussion')order("updated_at desc").select{|top| top.page.nil? }
   end
 end
