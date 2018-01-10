@@ -2,7 +2,7 @@ OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   if Rails.env.production?
-    provider :facebook, '1749343458697129', 'fa4b6d00bb1db7314fc146be10de0bc8'
+    provider :facebook, '144466602858476', '39e09abc4381b14218386c54266bb29e'
   else
     provider :facebook, '262794053844528', '5e4b360387ea0004830b435c87c2a731'
   end
